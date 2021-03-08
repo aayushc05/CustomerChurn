@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telecom Customers Churn</title>
+</head>
+
+<body>
+
+    <div style="color: blue">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2>Predictive Churn analysis</h2>
+            <h3>Tenure (in months)</h3>
+            <input id="first" name="tenure" type="number ">
+            <h3>What are the Total Charges?</h3><input id="second" name="TotalCharges" required="required">
+            <h3>What are the Monthly Charges?</h3><br><input id="third" name="MonthlyCharges" required="required">
+            <h3>What Is the Payment Method?</h3><br><select name="PaymentMethod_Electronic_check" id="PaymentMethod" required="required">
+                <option value="Electronic_check">Electronic_check</option>
+                <option value="Mailed_check">Mailed_check</option>
+                <option value="Credit_card_automatic">Credit_card_automatic</option>
+                <option value="Bank_transfer_automatic">Bank_transfer_automatic</option>
+            </select>
+            <h3>What is the type of Contract period?</h3><br><select name="Contract_Two_year" id="Contract" required="required">
+                <option value="Two_year">Two_year</option>
+                <option value="One_year">One_year</option>
+                <option value="Month-to-month">Month-to-month</option>
+            </select>
+            <h3>Internet service type?</h3><br><select name="InternetService_Fiber_optic" id="InternetService" required="required">
+                <option value="Fiber_optic">Fiber_optic</option>
+                <option value="DSL">DSL</option>
+                <option value="No">No</option>
+            </select>
+            <br><br><button id="sub" type="submit ">Calculate Churn</button>
+            <br>
+
+
+
+
+        </form>
+
+
+
+        <br><br><h3>{{ prediction_text }}<h3>
+    </div>
+
+
+
+
+    <style>
+        body {
+            background-color: lightyellow;
+            text-align: center;
+            padding: 0px;
+        }
+        
+        #InternetService {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 1500px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #PaymentMethod {
+            width: 175px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #PaymentMethod:hover {
+            background-color: coral;
+        }
+        
+        #InternetService {
+            width: 125px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #InternetService:hover {
+            background-color: coral;
+        }
+        
+        #Contract {
+            width: 110px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #Contract:hover {
+            background-color: coral;
+        }
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+        
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #second {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+    </style>
+</body>
+
+</html>
